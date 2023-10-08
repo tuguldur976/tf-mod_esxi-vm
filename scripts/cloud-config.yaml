@@ -1,0 +1,18 @@
+#cloud-config
+
+repo_update: true
+repo_upgrade: all
+
+packages:
+  - lvm2
+
+# Run commands on first boot
+# https://cloudinit.readthedocs.io/en/latest/reference/examples.html#run-commands-on-first-boot
+runcmd:
+ - [ ls, -l, / ]
+ - [ sh, -xc, "echo $(date) ': hello world!'" ]
+ - [ sh, -c, echo "=========hello world=========" ]
+ - ls -l /root
+ 
+output:
+  all: '| tee -a /var/log/cloud-init-output.log'
