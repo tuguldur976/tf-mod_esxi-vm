@@ -16,8 +16,8 @@ resource "esxi_guest" "vm" {
     virtual_network = var.esxi_network_name
   }
 
-  guestinfo = {
-    # "userdata.encoding" = "gzip+base64"
-    "userdata" = data.cloudinit_config.cloudinit.rendered
-  }
+  # guestinfo = {
+  #   # "userdata.encoding" = "gzip+base64"
+  #   "userdata" = data.cloudinit_config.cloudinit.rendered
+  # }
 }
