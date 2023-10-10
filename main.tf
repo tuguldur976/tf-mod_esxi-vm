@@ -20,4 +20,11 @@ resource "esxi_guest" "vm" {
   #   # "userdata.encoding" = "gzip+base64"
   #   "userdata" = data.cloudinit_config.cloudinit.rendered
   # }
+  #########################################
+  #  ESXI Guestinfo metadata
+  #########################################
+  guestinfo = {
+    "metadata"          = base64gzip(file("metadata.yaml"))
+    "metadata.encoding" = "gzip+base64"
+  }
 }
