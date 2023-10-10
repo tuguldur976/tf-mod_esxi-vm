@@ -24,7 +24,7 @@ resource "esxi_guest" "vm" {
   #  ESXI Guestinfo metadata
   #########################################
   guestinfo = {
-    "metadata"          = base64gzip(file("metadata.yaml"))
+    "metadata"          = base64gzip(file("${path.module}/metadata.yaml"))
     "metadata.encoding" = "gzip+base64"
   }
 }
