@@ -5,11 +5,11 @@ network:
       name: ens32
       subnets:
         - type: static
-          address: 192.168.0.253/24
-          gateway: 192.168.0.1
+          address: ${IP_ADDR}/${NETMASK}
+          gateway: ${GATEWAY}
     - type: nameserver
       address:
-        - 8.8.8.8
-        - 1.1.1.1
+        - ${DNS1}
+        - ${DNS2}
       search:
         - example.org

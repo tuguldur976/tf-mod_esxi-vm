@@ -62,3 +62,28 @@ variable "vm_name_base" {
   type        = string
   default     = "vm"
 }
+
+variable "vmIpAddress" {
+  description = "VM static IP address"
+  type        = string
+}
+
+variable "vmNetmask" {
+  description = "VM network subnet mask"
+  type        = string
+}
+
+variable "vmDefaultGW" {
+  description = "VM network default gateway"
+  type        = string
+}
+
+variable "vmDNS1" {
+  description = "VM network DNS1"
+  type        = string
+}
+
+variable "vmDNS2" {
+  description = "VM network DNS2"
+  type        = string
+}

@@ -1,3 +1,18 @@
+data "template_file" "cloudinit_metadata" {
+  template = file("${path.module}/cloud-init/metadata.tpl")
+  vars = {
+    # HOSTNAME = var.guestHostname
+    # STATIC_IP = var.vmStaticIp
+    IP_ADDR = var.vmIpAddress
+    NETMASK = var.vmNetmask
+    GATEWAY = var.vmDefaultGW
+    DNS1    = var.vmDNS1
+    DNS2    = var.vmDNS2
+    # USERNAME = var.vmUsername
+    # SSH_KEY = var.vmSSHKey
+  }
+}
+
 data "cloudinit_config" "cloudinit" {
   gzip          = false
   base64_encode = false
