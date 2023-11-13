@@ -4,11 +4,11 @@ locals {
   meta_data = templatefile("${path.module}/cloud-init/metadata.tpl", {
     # HOSTNAME = var.guestHostname
     # STATIC_IP = var.vmStaticIp
-    IP_ADDR = var.vmIpAddress
-    NETMASK = var.vmNetmask
-    GATEWAY = var.vmDefaultGW
-    DNS1    = var.vmDNS1
-    DNS2    = var.vmDNS2
+    IP_ADDR = var.vmIpAddress,
+    NETMASK = var.vmNetmask,
+    GATEWAY = var.vmDefaultGW,
+    DNS1    = var.vmDNS1,
+    DNS2    = var.vmDNS2,
     # USERNAME = var.vmUsername
     # SSH_KEY = var.vmSSHKey
   })
@@ -38,6 +38,6 @@ resource "esxi_guest" "vm" {
   guestinfo = {
     "metadata.encoding" = "gzip+base64"
     # "metadata"          = base64gzip(data.template_file.cloudinit_metadata.rendered)
-    "metadata" = base64gzip(local.meta_data.rendered)
+    "metadata" = base64gzip(local.meta_data)
   }
 }
