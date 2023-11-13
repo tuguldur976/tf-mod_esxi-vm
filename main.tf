@@ -38,6 +38,6 @@ resource "esxi_guest" "vm" {
   guestinfo = {
     "metadata.encoding" = "gzip+base64"
     # "metadata"          = base64gzip(data.template_file.cloudinit_metadata.rendered)
-    "metadata" = base64gzip(local.meta_data)
+    "metadata" = base64gzip(local.meta_data.rendered)
   }
 }
