@@ -5,14 +5,17 @@ repo_upgrade: all
 
 packages:
   - lvm2
+  - ntp
+  - ntpdate
 
 # Run commands on first boot
 # https://cloudinit.readthedocs.io/en/latest/reference/examples.html#run-commands-on-first-boot
 runcmd:
- - [ ls, -l, / ]
- - [ sh, -xc, "echo $(date) ': hello world!'" ]
- - [ sh, -c, echo "=========hello world=========" ]
- - ls -l /root
- 
+  - [ls, -l, /]
+  - [sh, -xc, "echo $(date) ': hello world!'"]
+  - [sh, -c, echo "=========hello world========="]
+  - ls -l /root
+  - date >/root/cloudinit2.log
+
 output:
-  all: '| tee -a /var/log/cloud-init-output.log'
+  all: "| tee -a /var/log/cloud-init-output.log"
